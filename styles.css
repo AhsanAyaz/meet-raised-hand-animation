@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --buttonWidth: max-content;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: black;
+  background-color: white;
+  background-color: #000;
+}
+
+
+main {
+  padding: 1rem;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+#toggler {
+  margin-bottom: 20px;
+}
+
+
+#raisedHand img {
+  height: 16px;
+}
+
+#raisedHand {
+  padding: 0.35rem 14px;
+  background: #fff;
+  border: 1px solid gray;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  display: flex;
+  width: max-content;
+  visibility: hidden;
+}
+
+#raisedHand span {
+  visibility: hidden;
+  white-space: nowrap;
+}
+
+
+#raisedHand img {
+  transform-origin: bottom center;
+  transform: rotate3d(0, 1, 0, 180deg);
+}
+
+#raisedHand.active {
+  animation: handContainer 1s forwards;
+  visibility: visible;
+}
+
+#raisedHand.active span {
+  animation: username 0.3s ease-in forwards;
+  visibility: visible;
+}
+
+#raisedHand.active img {
+  animation: hand 1.5s;
+}
+
+@keyframes handContainer {
+  0% {
+    visibility: visible;
+    width: 33px;
+    transform: scale(0.3)
+  }
+  25% {
+    transform: scale(1)
+  }
+  90% {
+    width: 33px;
+    position: relative;
+    padding: 0.35rem 8px;
+    right: 0;
+  }
+  100% {
+    padding: 0.35rem 14px;
+    width: var(--buttonWidth);
+    position: relative;
+    right: 6px;
+  }
+}
+
+@keyframes hand {
+  0% {
+    transform: translateY(200%) rotate3d(0, 1, 0, 180deg);
+  }
+  20% {
+    transform: translateY(200%) rotate3d(0, 1, 0, 180deg);
+  }
+  30% {
+    transform: translateY(-4px) rotate3d(0, 1, 0, 180deg);
+  }
+  50% {
+    transform: translateY(0) rotate3d(0, 1, 0, 180deg);
+  }
+  70% {
+    transform: rotate(-15deg) rotate3d(0, 1, 0, 180deg);
+  }
+  80% {
+    transform: rotate(15deg) rotate3d(0, 1, 0, 180deg);
+  }
+  90% {
+    transform: rotate(-15deg) rotate3d(0, 1, 0, 180deg)
+  }
+  100% {
+    transform: rotate(15deg) rotate3d(0, 1, 0, 180deg);
+  }
+}
+
+@keyframes username {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
